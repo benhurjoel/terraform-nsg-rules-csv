@@ -1,0 +1,10 @@
+.terraform/
+*.hcl
+*.backup
+*.tfstate
+*.tfstate.backup
+*.lock.hcl
+*.lock.info
+*.pem
+*.ppk
+*.pem.pub
