@@ -8,3 +8,4 @@
 *.pem
 *.ppk
 *.pem.pub
+.DS_Store
