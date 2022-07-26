@@ -1,0 +1,3 @@
+ruleName,description,priority,access,direction,protocol,sourceAddressPrefix,sourceAddressPrefixes,sourceApplicationSecurityGroups,sourcePortRange,sourcePortRanges,destinationAddressPrefix,destinationAddressPrefixes,destinationApplicationSecurityGroups,destinationPortRange,destinationPortRanges
+test-rule-200,Justtest1,2100,Allow,Inbound,Tcp,AzureLoadBalancer,,,*,,,,,,80|443
+test-rule-300,Justtest2,2200,Allow,Inbound,Tcp,AzureLoadBalancer,,,*,,,,,,880|8443
