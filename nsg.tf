@@ -5,8 +5,6 @@ locals {
     for item in local.rules_name : 
     item => [ for line in local.csv_source : line ] 
   }
- 
-
 }
 
 resource "azurerm_resource_group" "rg" {
@@ -35,6 +33,4 @@ resource "azurerm_network_security_group" "nsg" {
     source_port_range                          = security_rule.value.sourcePortRange
     }
   }
-
-
 }
