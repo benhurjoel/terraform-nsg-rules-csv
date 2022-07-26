@@ -1,13 +1,11 @@
 locals {
   csv_source = csvdecode(file("./nsg_rules/inbound-web.csv"))
-  rule_names = distinct([for item in local.csv_source: item.ruleName])
+  rules_name = local.csv_source[*].ruleName
   rules = {
-    for item in local.rule_names :
-    "${item}" => [
-      for line in local.csv_source : line
-      if item == line.ruleName
-    ]
+    for item in local.rules_name : 
+    item => [ for line in local.csv_source : line ] 
   }
+ 
 
 }
 
@@ -33,7 +31,7 @@ resource "azurerm_network_security_group" "nsg" {
     name                                       = security_rule.value.ruleName
     priority                                   = security_rule.value.priority
     protocol                                   = security_rule.value.protocol
-    source_address_prefix                      = security_rule.value.sourcePortRange
+    source_address_prefix                      = security_rule.value.sourceAddressPrefix
     source_port_range                          = security_rule.value.sourcePortRange
     }
   }
