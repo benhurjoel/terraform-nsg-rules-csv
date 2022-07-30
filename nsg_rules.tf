@@ -1,6 +1,6 @@
 locals {
   csv_source = csvdecode(file("./nsg_rules/inbound-web.csv"))
-  rules      = { for item, line in local.csv_source : "${item}" => line }
+  rules      = { for item, line in local.csv_source : item => line }
 }
 
 resource "azurerm_resource_group" "rg" {
